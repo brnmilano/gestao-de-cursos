@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Cursos</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .gestao-de-cursos-select-e-criar-curso {
+        display: flex;
+        gap: 1.875rem;
+      }
+
+      .gestao-de-cursos-titulo {
+        color: #0f5f5c;
+        font-weight: lighter;
+        font-family: "Roboto", sans-serif;
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+
+      .lista-de-cursos {
+        padding-right: 1.75rem;
+        color: #495057;
+        background-size: 0.5rem 0.625rem;
+        cursor: pointer;
+        background-color: #fff;
+        border-color: #ced4da;
+        border-style: solid;
+        border-width: 0.0625rem;
+        border-bottom-width: 0.0625rem;
+        border-left-width: 0.0625rem;
+        border-right-width: 0.0625rem;
+        border-top-width: 0.0625rem;
+        border-radius: 0.25rem;
+        display: block;
+        font-size: 1rem;
+        font-weight: 400;
+        height: 2.375rem;
+        line-height: 1.5;
+        min-width: 20.625rem;
+        padding-bottom: 0.375rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        padding-top: 0.375rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        width: 100%;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+      }
+
+      .lista-de-cursos:focus {
+        border-color: #0f5f5c;
+        outline: none;
+      }
+
+      .lista-de-cursos::ms-expand {
+        display: none;
+      }
+
+      .gestao-de-cursos-criar-curso {
+        border-radius: 0.25rem;
+        background: #0d4f4d;
+        color: #fff;
+        font-size: 0.875rem;
+        cursor: pointer;
+        padding: 0.7rem 1.25rem;
+        border: none;
+        text-align: center;
+        text-transform: none;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      .gestao-de-cursos-criar-curso:hover {
+        opacity: 0.85;
+      }
+
+      .gestao-de-cursos-tabela {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 2rem;
+      }
+
+      tr {
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+      }
+
+      tr:hover {
+        background-color: #2f9e40;
+      }
+
+      tr:hover td {
+        color: #ffffff;
+      }
+
+      td {
+        padding: 0.75rem 1.25rem 0.625rem 1.25rem;
+      }
+
+      .cursos td:last-child {
+        text-align: center;
+      }
+
+      .lista-de-cursos-nome-do-curso {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #4a5058;
+      }
+
+      .lista-de-cursos-nivel-do-curso {
+        font-family: "Roboto", sans-serif;
+        font-weight: 600;
+        font-size: 0.75rem;
+        color: #a4a4a4;
+        text-transform: uppercase;
+      }
+
+      .btn-do-dropdown {
+        background-color: #ededed;
+        color: white;
+        cursor: pointer;
+        padding: 0.25rem 0.75rem;
+        font-size: 16px;
+        border: 1px solid #c7c7c7;
+        border-radius: 0.25rem;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+
+      .btn-do-dropdown:focus {
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+
+      .fas {
+        color: #0d4f4d;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .conteudo-dropdown {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 200px;
+        z-index: 1;
+        right: 0;
+        border: 1px solid #c7c7c7;
+        border-radius: 0.25rem;
+      }
+
+      .conteudo-dropdown a {
+        color: #000000;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 0.625rem;
+        padding: 0.625rem 1.25rem;
+      }
+
+      .conteudo-dropdown a:last-child {
+        border-top: 1px solid #e9ecef;
+      }
+
+      .dropdown a:hover {
+        background-color: #ddd;
+      }
+
+      .show {
+        display: block;
+      }
+
+      .texto-da-modal {
+        margin-top: 0;
+        font-size: 1.1em;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal .content {
+        background-color: #d3d3d3;
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 5px;
+        width: 70%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        font-family: "LexendDeca-Regular";
+        color: var(--title);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3 class="gestao-de-cursos-titulo">Lista de Cursos</h3>
+
+    <div class="gestao-de-cursos-select-e-criar-curso">
+      <form>
+        <select
+          id="lista-de-cursos"
+          name="lista-de-cursos"
+          class="lista-de-cursos"
+        >
+          <!-- Opções de cursos -->
+          <option value="todos-os-cursos" selected>
+            Todos os tipos de cursos
+          </option>
+          <option value="tecnico-integrado">Técnico integrado</option>
+          <option value="qualificacao-profissional">
+            Qualificação profissional
+          </option>
+          <option value="tecnico-concomitante">Técnico concomitante</option>
+        </select>
+      </form>
+
+      <div>
+        <button class="gestao-de-cursos-criar-curso">Criar Curso</button>
+      </div>
+
+      <!-- <div class="dropdown">
+        <button onclick="openDropdown('dropdown4')" class="btn-do-dropdown">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+
+        <div id="dropdown4" class="conteudo-dropdown">
+          <a href="#forma-de-ingresso">Forma de ingresso</a>
+          <a href="#tipo-de-curso">Tipo de curso</a>
+        </div>
+      </div> -->
+    </div>
+
+    <table class="gestao-de-cursos-tabela cursos">
+      <tbody>
+        <tr data-course-type="tecnico-integrado">
+          <td class="lista-de-cursos-nome-do-curso">Administração</td>
+
+          <td class="lista-de-cursos-nivel-do-curso">TÉCNICO INTEGRADO</td>
+
+          <td>
+            <div class="dropdown">
+              <button
+                onclick="openDropdown('dropdown1')"
+                class="btn-do-dropdown"
+              >
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+
+              <div id="dropdown1" class="conteudo-dropdown">
+                <a href="#editar">Editar</a>
+                <a href="#campus">Listar Câmpus</a>
+                <a href="#excluir">Excluir</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr data-course-type="qualificacao-profissional">
+          <td class="lista-de-cursos-nome-do-curso">
+            Administração e empreendedorismo rural
+          </td>
+
+          <td class="lista-de-cursos-nivel-do-curso">
+            QUALIFICAÇÃO PROFISSIONAL
+          </td>
+
+          <td>
+            <div class="dropdown">
+              <button
+                onclick="openDropdown('dropdown2')"
+                class="btn-do-dropdown"
+              >
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+
+              <div id="dropdown2" class="conteudo-dropdown">
+                <a href="#editar">Editar</a>
+                <a href="#campus">Listar Câmpus</a>
+                <a href="#excluir">Excluir</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr data-course-type="tecnico-concomitante">
+          <td class="lista-de-cursos-nome-do-curso">Agricultura</td>
+
+          <td class="lista-de-cursos-nivel-do-curso">TÉCNICO CONCOMITANTE</td>
+
+          <td>
+            <div class="dropdown">
+              <button
+                onclick="openDropdown('dropdown3')"
+                class="btn-do-dropdown"
+              >
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+
+              <div id="dropdown3" class="conteudo-dropdown">
+                <a class="modalBtn" href="#editar">Editar</a>
+                <a class="modalBtn" href="#campus">Listar Câmpus</a>
+                <a class="modalBtn" href="#excluir">Excluir</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <div class="modal">
+      <div class="content">
+        <h1 class="title">Olá, eu sou um modal!</h1>
+      </div>
+    </div> -->
+
+    <!-- <button class="modalBtn">Alternar modal</button> -->
+
+    <script src="./JS/script.js" defer></script>
+  </body>
+</html>
