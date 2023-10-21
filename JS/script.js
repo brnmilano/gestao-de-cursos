@@ -87,29 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-const openModal = () => {
-  const modal = document.querySelector('.modal');
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = "block";
+}
 
-  const actualStyle = modal.style.display;
-
-  if (actualStyle == 'block') {
-    modal.style.display = 'none'
-  } else {
-    modal.style.display = 'block'
-  };
-};
-
-//Funcionalidade para abrir e fechar a modal
-const btn = document.querySelector('.modalBtn');
-// Verifica se o botão da modal foi selecionado corretamente
-if (btn) {
-  btn.addEventListener('click', openModal);
-
-  window.onclick = function (event) {
-    const modal = document.querySelector('.modal');
-
-    if (event.target == modal) {
-      openModal()
-    };
-  };
-};
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = "none";
+}
