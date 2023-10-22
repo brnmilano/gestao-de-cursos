@@ -162,24 +162,8 @@
         </form>
 
         <div>
-          <button
-            onclick="openModal('modal-criar-curso')"
-            class="gestao-de-cursos-criar-curso"
-          >
-            Criar Curso
-          </button>
+          <button class="gestao-de-cursos-criar-curso">Criar Curso</button>
         </div>
-
-        <!-- <div class="dropdown">
-      <button onclick="openDropdown('dropdown4')" class="btn-do-dropdown">
-        <i class="fas fa-ellipsis-v"></i>
-      </button>
-
-      <div id="dropdown4" class="conteudo-dropdown">
-        <a href="#forma-de-ingresso">Forma de ingresso</a>
-        <a href="#tipo-de-curso">Tipo de curso</a>
-      </div>
-    </div> -->
       </div>
     </section>
 
@@ -251,37 +235,15 @@
                 </button>
 
                 <div id="dropdown3" class="conteudo-dropdown">
-                  <a href="#" onclick="openModal('modal-editar')">Editar</a>
-                  <a href="#" onclick="openModal('modal-campus')">
-                    Listar Câmpus
-                  </a>
-                  <a href="#" onclick="openModal('modal-excluir')">Excluir</a>
+                  <a href="#">Editar</a>
+                  <a href="#">Listar Câmpus</a>
+                  <a href="#">Excluir</a>
                 </div>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
-    </section>
-
-    <section>
-      <!-- Modal para Editar -->
-      <div id="modal-editar" class="modal">
-        <div class="content">
-          <h1 class="title">Editar Curso</h1>
-          <!-- Você pode adicionar mais conteúdo aqui, como um formulário para edição -->
-          <button onclick="closeModal('modal-editar')">Fechar</button>
-        </div>
-      </div>
-
-      <!-- Modal para Excluir -->
-      <div id="modal-excluir" class="modal">
-        <div class="content">
-          <h1 class="title">Deseja realmente excluir este curso?</h1>
-          <!-- Conteúdo adicional -->
-          <button onclick="closeModal('modal-excluir')">Fechar</button>
-        </div>
-      </div>
     </section>
 
     <script src="./JS/script.js" defer></script>

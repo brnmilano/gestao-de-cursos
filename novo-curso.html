@@ -30,7 +30,7 @@
         padding: 20px;
       }
 
-      .modal-criar-curso-footer {
+      .criar-curso-footer {
         display: flex;
         gap: 10px;
         padding: 14px 15px 15px;
@@ -194,8 +194,12 @@
           </div>
 
           <div>
-            <label for="modal-tipo-curso">Tipo de Curso</label>
-            <select id="modal-tipo-curso" name="modal-tipo-curso" required>
+            <label for="selecionar-tipo-curso">Tipo de Curso</label>
+            <select
+              id="selecionar-tipo-curso"
+              name="selecionar-tipo-curso"
+              required
+            >
               <option value="" disabled selected>
                 Selecione o tipo de curso
               </option>
@@ -273,13 +277,8 @@
         </div>
       </div>
 
-      <div class="modal-criar-curso-footer">
-        <button
-          class="btn-voltar-novo-curso"
-          onclick="closeModal('modal-criar-curso')"
-        >
-          Voltar
-        </button>
+      <div class="criar-curso-footer">
+        <button class="btn-voltar-novo-curso">Voltar</button>
 
         <button
           type="submit"
