@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listar Câmpus</title>
+
+    <link rel="stylesheet" href="./CSS/reset.css" />
+    <link rel="stylesheet" href="./CSS/global.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .conteudo-listar-campus {
+        padding: 15px;
+      }
+
+      .btn-criar-campus {
+        border-radius: 0.25rem;
+        background: #0d4f4d;
+        color: #fff;
+        font-size: 0.875rem;
+        cursor: pointer;
+        padding: 0.7rem 1.25rem;
+        border: none;
+        text-align: center;
+        text-transform: none;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      thead {
+        padding: 0.75rem 1.25rem 0.625rem 1.25rem;
+      }
+
+      .gestao-de-cursos-tabela-campus {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 2rem;
+      }
+
+      .titulo-tabela-campus th {
+        font-weight: 600;
+      }
+
+      .titulo-tabela-campus:hover {
+        background-color: #ffffff;
+      }
+
+      tr {
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+      }
+
+      tr:hover {
+        background-color: #2f9e40;
+      }
+
+      tr:hover td {
+        color: #ffffff;
+      }
+
+      td {
+        padding: 0.75rem 1.25rem 0.625rem 1.25rem;
+      }
+
+      th {
+        text-align-last: left;
+        padding: 0.75rem 1.25rem 0.625rem 1.25rem;
+      }
+
+      .campus td:last-child {
+        text-align: left;
+      }
+
+      .listar-campus-footer {
+        padding: 14px 15px 15px;
+        margin-bottom: 0;
+        text-align: left;
+        background-color: #f5f5f5;
+        border-top: 1px solid #ddd;
+        border-radius: 0 0 6px 6px;
+        box-shadow: inset 0 1px 0 #fff;
+      }
+
+      .listar-campus-footer button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+        padding: 0.625rem 1.25rem;
+        border-radius: 0.25rem;
+        border: 1px solid #c7c7c7;
+        color: #333;
+        cursor: pointer;
+      }
+
+      .listar-campus-footer button:hover {
+        border: 1px solid #545b62;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="modal-campus" class="modal">
+      <div class="content">
+        <div class="conteudo-listar-campus">
+          <div>
+            <button class="btn-criar-campus">Criar Câmpus</button>
+          </div>
+
+          <div>
+            <table class="gestao-de-cursos-tabela-campus campus">
+              <thead>
+                <tr class="titulo-tabela-campus">
+                  <th>Nome do Câmpus</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="lista-trocar-campus-nome">
+                    Câmpus Caçador (Câmpus Caçador)
+                  </td>
+
+                  <td class="lista-trocar-campus-status">Desativado</td>
+
+                  <td>
+                    <div class="dropdown">
+                      <button
+                        onclick="openDropdown('dropdown-campus1')"
+                        class="btn-do-dropdown"
+                      >
+                        <i class="fas fa-ellipsis-v"></i>
+                      </button>
+
+                      <div id="dropdown-campus1" class="conteudo-dropdown">
+                        <a href="#listar-campus-editar">Editar</a>
+                        <a href="#listar-campus-ativar">Ativar</a>
+                        <a href="#listar-campus-trocar">Trocar Categoria</a>
+                        <a href="#listar-campus-excluir">Excluir</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="lista-trocar-campus-nome">
+                    Câmpus Caçador (Câmpus Caçador)
+                  </td>
+
+                  <td class="lista-trocar-campus-status">Desativado</td>
+
+                  <td>
+                    <div class="dropdown">
+                      <button
+                        onclick="openDropdown('dropdown-campus2')"
+                        class="btn-do-dropdown"
+                      >
+                        <i class="fas fa-ellipsis-v"></i>
+                      </button>
+
+                      <div id="dropdown-campus2" class="conteudo-dropdown">
+                        <a href="#listar-campus-editar">Editar</a>
+                        <a href="#listar-campus-ativar">Ativar</a>
+                        <a href="#listar-campus-trocar">Trocar Categoria</a>
+                        <a href="#listar-campus-excluir">Excluir</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="lista-trocar-campus-nome">
+                    Câmpus São Lourenço do Oeste (Câmpus São Lourenço do Oeste)
+                  </td>
+
+                  <td class="lista-trocar-campus-status">Ativado</td>
+
+                  <td>
+                    <div class="dropdown">
+                      <button
+                        onclick="openDropdown('dropdown-campus3')"
+                        class="btn-do-dropdown"
+                      >
+                        <i class="fas fa-ellipsis-v"></i>
+                      </button>
+
+                      <div id="dropdown-campus3" class="conteudo-dropdown">
+                        <a href="#listar-campus-editar">Editar</a>
+                        <a href="#listar-campus-ativar">Ativar</a>
+                        <a href="#listar-campus-trocar">Trocar Categoria</a>
+                        <a href="#listar-campus-excluir">Excluir</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="listar-campus-footer">
+          <button>Voltar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./JS/script.js"></script>
+  </body>
+</html>

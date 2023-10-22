@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novo Curso</title>
+
+    <link rel="stylesheet" href="./CSS/reset.css" />
+
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .criar-curso-titulo {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        flex-grow: 1;
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 20px 0 0 20px;
+      }
+
+      .inputs-textarea {
+        padding: 20px;
+      }
+
+      .modal-criar-curso-footer {
+        display: flex;
+        gap: 10px;
+        padding: 14px 15px 15px;
+        margin-bottom: 0;
+        text-align: left;
+        background-color: #f5f5f5;
+        border-top: 1px solid #ddd;
+        border-radius: 0 0 6px 6px;
+        box-shadow: inset 0 1px 0 #fff;
+      }
+
+      .btn-voltar-novo-curso {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+        padding: 0.625rem 1.25rem;
+        border-radius: 0.25rem;
+        border: 1px solid #c7c7c7;
+        color: #333;
+        cursor: pointer;
+      }
+
+      .btn-criar-novo-curso {
+        font-weight: 500;
+        border-radius: 0.25rem;
+        background: #0d4f4d;
+        color: #fff;
+        font-size: 0.875rem;
+        cursor: pointer;
+        padding: 0.7rem 1.25rem;
+        border: none;
+        text-align: center;
+        text-transform: none;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      .criar-curso-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 0 auto;
+      }
+
+      .criar-curso-form > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      label {
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="file"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        border-color: #ced4da;
+        border-style: solid;
+        border-width: 0.0625rem;
+        border-bottom-width: 0.0625rem;
+        border-left-width: 0.0625rem;
+        border-right-width: 0.0625rem;
+        border-top-width: 0.0625rem;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+      }
+
+      input[type="file"] {
+        width: 100%;
+        padding: 7px 10px 7px 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      textarea:focus {
+        border-color: #0f5f5c;
+        outline: none;
+      }
+
+      input[type="text"]:focus {
+        border-color: #0f5f5c;
+        outline: none;
+      }
+
+      input[type="file"]:focus {
+        border-color: #0f5f5c;
+        outline: none;
+      }
+
+      select:focus {
+        border-color: #0f5f5c;
+        outline: none;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 100px;
+        resize: vertical;
+        margin-top: 10px;
+      }
+
+      select {
+        cursor: pointer;
+      }
+
+      .curso-ead {
+        display: flex;
+        justify-content: center !important;
+      }
+
+      .curso-ead label {
+        margin-bottom: 0 !important;
+        cursor: pointer;
+      }
+
+      .curso-ead input {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="criar-curso-titulo">
+      <h4>Criar Curso</h4>
+    </div>
+
+    <form id="formulario-criar-curso">
+      <div class="inputs-textarea">
+        <div class="criar-curso-form">
+          <div>
+            <label for="nome-curso">Nome do Curso</label>
+            <input
+              type="text"
+              id="nome-curso"
+              name="nome-curso"
+              placeholder="Digite o nome do curso"
+              required
+            />
+          </div>
+
+          <div class="curso-ead">
+            <label>
+              <input type="checkbox" id="curso-ead" name="curso-ead" />
+              É um curso EAD?
+            </label>
+          </div>
+
+          <div>
+            <label for="modal-tipo-curso">Tipo de Curso</label>
+            <select id="modal-tipo-curso" name="modal-tipo-curso" required>
+              <option value="" disabled selected>
+                Selecione o tipo de curso
+              </option>
+
+              <option value="tecnico-integrado">Técnico integrado</option>
+
+              <option value="qualificacao-profissional">
+                Qualificação profissional
+              </option>
+
+              <option value="tecnico-concomitante">Técnico concomitante</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="tamanho-titulo">Tamanho do título</label>
+            <select id="tamanho-titulo" name="tamanho-titulo" required>
+              <option value="segundo-titulo">Segundo título</option>
+              <option value="terceiro-titulo">Terceiro título</option>
+              <option value="quarto-titulo">Quarto título</option>
+              <option value="quinto-titulo">Quinto título</option>
+              <option value="sexto-titulo">Sexto título</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="id-video">ID do vídeo</label>
+            <input type="text" id="id-video" name="id-video" />
+          </div>
+
+          <div>
+            <label for="imagem-curso">Imagem</label>
+            <input type="file" id="imagem-curso" name="imagem-curso" />
+          </div>
+        </div>
+
+        <div>
+          <label for="descricao-curso">Descrição do Curso</label>
+          <textarea
+            id="descricao-curso"
+            name="descricao-curso"
+            rows="4"
+            cols="50"
+          ></textarea>
+        </div>
+
+        <div>
+          <label for="mercado-de-trabalho">Mercado de Trabalho</label>
+          <textarea
+            id="mercado-de-trabalho"
+            name="mercado-de-trabalho"
+            rows="4"
+            cols="50"
+          ></textarea>
+        </div>
+
+        <div>
+          <label for="pre-requisitos">Pré-requisitos</label>
+          <textarea
+            id="pre-requisitos"
+            name="pre-requisitos"
+            rows="4"
+            cols="50"
+          ></textarea>
+        </div>
+
+        <div>
+          <label for="outras-informacoes">Outras informações</label>
+          <textarea
+            id="outras-informacoes"
+            name="outras-informacoes"
+            rows="4"
+            cols="50"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="modal-criar-curso-footer">
+        <button
+          class="btn-voltar-novo-curso"
+          onclick="closeModal('modal-criar-curso')"
+        >
+          Voltar
+        </button>
+
+        <button
+          type="submit"
+          form="formulario-criar-curso"
+          class="btn-criar-novo-curso"
+        >
+          Criar novo curso
+        </button>
+      </div>
+    </form>
+
+    <script src="./JS/criar-curso.js" defer></script>
+  </body>
+</html>
