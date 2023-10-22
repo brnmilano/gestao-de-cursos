@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trocar Categoria</title>
+    <link rel="stylesheet" href="./CSS/reset.css" />
+
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        width: 1000px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .cabecalho {
+        padding: 9px 15px;
+        border-bottom: 1px solid #eee;
+        align-items: center;
+        border-color: #dee2e6;
+        border-style: solid;
+        border-width: 0 0 0.0625rem 0;
+        display: flex;
+        flex-shrink: 0;
+        height: 4rem;
+        justify-content: space-between;
+        padding: 1rem 1rem;
+        padding-bottom: 0;
+        padding-top: 0;
+        z-index: 1;
+      }
+
+      h3 {
+        font-family: "Roboto", sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .trocar-categoria-conteudo {
+        padding: 15px;
+      }
+
+      h4 {
+        margin-bottom: 20px;
+        color: #0f5f5c;
+        font-family: "Roboto", sans-serif;
+        font-size: 24px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        border-color: #ced4da;
+        border-style: solid;
+        border-width: 0.0625rem;
+        border-bottom-width: 0.0625rem;
+        border-left-width: 0.0625rem;
+        border-right-width: 0.0625rem;
+        border-top-width: 0.0625rem;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+      }
+
+      .botoes {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .btn-salvar {
+        border-radius: 0.25rem;
+        background: #0d4f4d;
+        color: #fff;
+        font-size: 0.875rem;
+        cursor: pointer;
+        padding: 0.7rem 1.25rem;
+        border: none;
+        text-align: center;
+        text-transform: none;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      .btn-salvar:hover {
+        opacity: 0.8;
+      }
+
+      label {
+        margin-bottom: 10px;
+      }
+
+      input[type="file"]:focus {
+        border-color: #0f5f5c;
+        outline: none;
+      }
+
+      select:focus {
+        border-color: #0f5f5c;
+        outline: none;
+      }
+
+      select {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cabecalho">
+        <h3>Trocar Categoria</h3>
+      </div>
+
+      <div class="trocar-categoria-conteudo">
+        <h4>Administração e empreendedorismo rural</h4>
+
+        <label for="trocar-tipo-curso">Tipo de Curso</label>
+        <select id="trocar-tipo-curso" name="trocar-tipo-curso">
+          <option value="" disabled selected>Selecione um tipo de curso</option>
+          <option value="tecnico-integrado">Técnico integrado</option>
+          <option value="qualificacao-profissional">
+            Qualificação profissional
+          </option>
+          <option value="tecnico-concomitante">Técnico concomitante</option>
+        </select>
+
+        <button class="btn-salvar" id="salvar-troca">Salvar</button>
+      </div>
+    </div>
+
+    <script src="./JS/trocar-categoria.js" defer></script>
+  </body>
+</html>
