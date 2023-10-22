@@ -36,7 +36,7 @@
         padding: 20px;
       }
 
-      .sub-titulo span {
+      .span {
         font-weight: 600;
       }
 
@@ -96,11 +96,11 @@
         align-items: flex-start;
       }
 
-      input[type="date"],
-      input[type="text"],
+      .date,
+      .text,
       input[type="file"],
-      select,
-      textarea {
+      .select,
+      .textarea {
         width: 100%;
         padding: 0.625rem;
         margin-bottom: 1.25rem;
@@ -130,12 +130,12 @@
         box-sizing: border-box;
       }
 
-      textarea:focus {
+      .textarea:focus {
         border-color: #0f5f5c;
         outline: none;
       }
 
-      input[type="text"]:focus {
+      .text:focus {
         border-color: #0f5f5c;
         outline: none;
       }
@@ -145,7 +145,7 @@
         outline: none;
       }
 
-      select:focus {
+      .select:focus {
         border-color: #0f5f5c;
         outline: none;
       }
@@ -154,14 +154,14 @@
         margin-right: 10px;
       }
 
-      textarea {
+      .textarea {
         width: 100%;
         height: 100px;
         resize: vertical;
         margin-top: 10px;
       }
 
-      select {
+      .select {
         cursor: pointer;
       }
 
@@ -180,7 +180,7 @@
     <div class="sub-titulo">
       <h5>
         Novo câmpus do curso de
-        <span>Administração e empreendedorismo rural</span>
+        <span class="span">Administração e empreendedorismo rural</span>
       </h5>
     </div>
 
@@ -189,6 +189,7 @@
         <div>
           <label for="nome-curso">Nome do Curso</label>
           <input
+            class="text"
             type="text"
             id="nome-curso"
             name="nome-curso"
@@ -199,7 +200,11 @@
         <div class="criar-campus-form">
           <div>
             <label for="criar-novo-campus">Status</label>
-            <select id="criar-novo-campus" name="criar-novo-campus">
+            <select
+              class="select"
+              id="criar-novo-campus"
+              name="criar-novo-campus"
+            >
               <option value="" disabled selected>Selecione</option>
 
               <option value="ativo">Ativo</option>
@@ -210,7 +215,7 @@
 
           <div>
             <label for="tamanho-titulo">Câmpus</label>
-            <select id="tamanho-titulo" name="tamanho-titulo">
+            <select class="select" id="tamanho-titulo" name="tamanho-titulo">
               <option value="" disabled selected>Selecione o câmpus</option>
 
               <option value="campus-cacados">Campus Caçador</option>
@@ -221,7 +226,7 @@
 
           <div>
             <label for="tamanho-titulo">Coordenador</label>
-            <select id="tamanho-titulo" name="tamanho-titulo">
+            <select class="select" id="tamanho-titulo" name="tamanho-titulo">
               <option value="" disabled selected>
                 Selecione o coordenador
               </option>
@@ -234,7 +239,7 @@
 
           <div>
             <label for="tamanho-titulo">Forma de Ingresso</label>
-            <select id="tamanho-titulo" name="tamanho-titulo">
+            <select class="select" id="tamanho-titulo" name="tamanho-titulo">
               <option value="" disabled selected>Selecione</option>
 
               <option value="vestibular">Vestibular</option>
@@ -247,6 +252,7 @@
         <div>
           <label for="corpo-docente">Descrição do Curso</label>
           <textarea
+            class="textarea"
             id="corpo-docente"
             name="corpo-docente"
             rows="4"
@@ -257,6 +263,7 @@
         <div>
           <label for="link-projeto">URL/Link Projeto Pedagógico do Curso</label>
           <input
+            class="text"
             type="text"
             id="link-projeto"
             name="link-projeto"
@@ -266,12 +273,19 @@
 
         <div>
           <label for="contato">Contato</label>
-          <textarea id="contato" name="contato" rows="4" cols="50"></textarea>
+          <textarea
+            class="textarea"
+            id="contato"
+            name="contato"
+            rows="4"
+            cols="50"
+          ></textarea>
         </div>
 
         <div>
           <label for="infraestrutura">Infraestrutura</label>
           <textarea
+            class="textarea"
             id="infraestrutura"
             name="infraestrutura"
             rows="4"
@@ -284,6 +298,7 @@
             >Projetos de Pesquisa e Extensão</label
           >
           <textarea
+            class="textarea"
             id="projetos-de-pesquisa"
             name="projetos-de-pesquisa"
             rows="4"
@@ -294,6 +309,7 @@
         <div>
           <label for="certificacao">Certificação</label>
           <textarea
+            class="textarea"
             id="certificacao"
             name="certificacao"
             rows="4"
@@ -302,10 +318,10 @@
         </div>
 
         <div class="criar-campus-form">
-          <!-- Número de Vagas -->
           <div>
             <label for="numero-de-vagas">Número de Vagas</label>
             <input
+              class="text"
               type="text"
               id="numero-de-vagas"
               name="numero-de-vagas"
@@ -313,10 +329,10 @@
             />
           </div>
 
-          <!-- Carga Horária -->
           <div>
             <label for="carga-horaria">Carga Horária</label>
             <input
+              class="text"
               type="text"
               id="carga-horaria"
               name="carga-horaria"
@@ -324,10 +340,9 @@
             />
           </div>
 
-          <!-- Turno -->
           <div>
             <label for="turno">Turno</label>
-            <select id="turno" name="turno">
+            <select class="select" id="turno" name="turno">
               <option value="" disabled selected>Selecione</option>
 
               <option value="manha">Manhã</option>
@@ -338,10 +353,13 @@
             </select>
           </div>
 
-          <!-- Turno Predominante -->
           <div>
             <label for="turno-predominante">Turno Predomonante</label>
-            <select id="turno-predominante" name="turno-predominante">
+            <select
+              class="select"
+              id="turno-predominante"
+              name="turno-predominante"
+            >
               <option value="" disabled selected>Selecione</option>
 
               <option value="manha">Manhã</option>
@@ -358,6 +376,7 @@
             >Duração (Informar se é mensal, semestral ou anual)</label
           >
           <input
+            class="text"
             type="text"
             id="duracao"
             name="duracao"
@@ -366,12 +385,12 @@
         </div>
 
         <div class="criar-campus-form">
-          <!--  Data de Início -->
           <div>
             <label for="data-inicio">
               Data de início do Processo de Inscrição
             </label>
             <input
+              class="date"
               type="date"
               id="data-inicio"
               name="data-inicio"
@@ -381,12 +400,12 @@
             <span id="data-inicio-error" class="error-message"></span>
           </div>
 
-          <!-- Data de término -->
           <div>
             <label for="data-termino"
               >Data de término do Processo de Inscrição</label
             >
             <input
+              class="date"
               type="date"
               id="data-termino"
               name="data-termino"
@@ -400,6 +419,7 @@
         <div>
           <label for="outras-informacoes">Outras Informações</label>
           <textarea
+            class="textarea"
             id="outras-informacoes"
             name="outras-informacoes"
             rows="4"
