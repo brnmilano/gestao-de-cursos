@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lista de Cursos</title>
+    <title>Tipo de Curso</title>
 
     <link
       rel="stylesheet"
@@ -11,6 +11,7 @@
     />
 
     <link rel="stylesheet" href="./CSS/global.css" />
+    <link rel="stylesheet" href="./CSS/reset.css" />
 
     <style>
       body {
@@ -19,18 +20,34 @@
         overflow: hidden;
       }
 
-      .gestao-de-cursos-select-e-criar-curso {
-        display: flex;
-        align-items: center;
-        gap: 1.875rem;
+      .tipo-de-curso-lista {
+        padding: 20px;
       }
 
-      .gestao-de-cursos-titulo {
+      .criar-tipo-titulo {
         color: #0f5f5c;
         font-weight: lighter;
         font-family: "Roboto", sans-serif;
         font-size: 2rem;
-        margin-bottom: 30px;
+      }
+
+      .titulo-btn-criar {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .criar-tipo {
+        border-radius: 0.25rem;
+        background: #0d4f4d;
+        color: #fff;
+        font-size: 0.875rem;
+        cursor: pointer;
+        padding: 0.7rem 1.25rem;
+        border: none;
+        text-align: center;
+        text-transform: none;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       }
 
       .lista-de-cursos {
@@ -71,20 +88,6 @@
 
       .lista-de-cursos::ms-expand {
         display: none;
-      }
-
-      .gestao-de-cursos-criar-curso {
-        border-radius: 0.25rem;
-        background: #0d4f4d;
-        color: #fff;
-        font-size: 0.875rem;
-        cursor: pointer;
-        padding: 0.7rem 1.25rem;
-        border: none;
-        text-align: center;
-        text-transform: none;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       }
 
       .gestao-de-cursos-criar-curso:hover {
@@ -258,161 +261,129 @@
         cursor: pointer;
         background-color: #cf0404;
       }
-
-      .dropdown4 {
-        left: 0;
-      }
     </style>
   </head>
-
   <body>
-    <h3 class="gestao-de-cursos-titulo">Lista de Cursos</h3>
+    <div class="tipo-de-curso-lista">
+      <section class="titulo-btn-criar">
+        <h1 class="criar-tipo-titulo">Tipos de curso</h1>
 
-    <section>
-      <div class="gestao-de-cursos-select-e-criar-curso">
-        <form>
-          <select
-            id="lista-de-tipos-de-cursos"
-            name="lista-de-cursos"
-            class="lista-de-cursos"
-          >
-            <option value="todos-os-cursos" selected>
-              Todos os tipos de cursos
-            </option>
-            <option value="tecnico-integrado">Técnico integrado</option>
-            <option value="qualificacao-profissional">
-              Qualificação profissional
-            </option>
-            <option value="tecnico-concomitante">Técnico concomitante</option>
-          </select>
-        </form>
+        <button class="criar-tipo">Criar tipo</button>
+      </section>
 
-        <div>
-          <button class="gestao-de-cursos-criar-curso">Criar Curso</button>
-        </div>
+      <section>
+        <table class="gestao-de-cursos-tabela cursos">
+          <thead class="thead">
+            <tr class="titulo-tabela-campus theadtr">
+              <th class="th">Nome</th>
+              <th class="th">Descrição</th>
+              <th class="th">Ações</th>
+            </tr>
+          </thead>
 
-        <div class="dropdown">
-          <button onclick="openDropdown('dropdown4')" class="btn-engrenagem">
-            <i class="fa fa-cog" aria-hidden="true"></i>
-          </button>
+          <tbody>
+            <tr data-course-type="tecnico-integrado" class="tr">
+              <td class="lista-de-cursos-nome-do-curso td">
+                Técnico integrado
+              </td>
 
-          <div id="dropdown4" class="conteudo-dropdown dropdown4">
-            <a href="#tipo-de-curso">Tipo de curso</a>
-            <a href="#forma-de-ingresso">Forma de ingresso</a>
-          </div>
-        </div>
-      </div>
-    </section>
+              <td class="lista-de-cursos-nivel-do-curso td">
+                Descrição Técnico integrado
+              </td>
 
-    <section>
-      <table class="gestao-de-cursos-tabela cursos">
-        <thead class="thead">
-          <tr class="titulo-tabela-campus theadtr">
-            <th class="th">Nome</th>
-            <th class="th">Nível do curso</th>
-            <th class="th">Ações</th>
-          </tr>
-        </thead>
+              <td class="td">
+                <div class="dropdown">
+                  <button
+                    onclick="openDropdown('dropdown5')"
+                    class="btn-do-dropdown"
+                  >
+                    <i class="fas fa-ellipsis-v"></i>
+                  </button>
 
-        <tbody>
-          <tr data-course-type="tecnico-integrado" class="tr">
-            <td class="lista-de-cursos-nome-do-curso td">Administração</td>
-
-            <td class="lista-de-cursos-nivel-do-curso td">TÉCNICO INTEGRADO</td>
-
-            <td class="td">
-              <div class="dropdown">
-                <button
-                  onclick="openDropdown('dropdown1')"
-                  class="btn-do-dropdown"
-                >
-                  <i class="fas fa-ellipsis-v"></i>
-                </button>
-
-                <div id="dropdown1" class="conteudo-dropdown">
-                  <a href="#editar">Editar</a>
-                  <a href="#campus">Listar Câmpus</a>
-                  <a href="#excluir">Excluir</a>
+                  <div id="dropdown5" class="conteudo-dropdown">
+                    <a href="#editar">Editar</a>
+                    <a href="#excluir">Excluir</a>
+                  </div>
                 </div>
-              </div>
-            </td>
-          </tr>
+              </td>
+            </tr>
 
-          <tr data-course-type="qualificacao-profissional" class="tr">
-            <td class="lista-de-cursos-nome-do-curso td">
-              Administração e empreendedorismo rural
-            </td>
+            <tr data-course-type="qualificacao-profissional" class="tr">
+              <td class="lista-de-cursos-nome-do-curso td">
+                Qualificação profissional
+              </td>
 
-            <td class="lista-de-cursos-nivel-do-curso td">
-              QUALIFICAÇÃO PROFISSIONAL
-            </td>
+              <td class="lista-de-cursos-nivel-do-curso td">
+                Descrição Qualificação profissional
+              </td>
 
-            <td class="td">
-              <div class="dropdown">
-                <button
-                  onclick="openDropdown('dropdown2')"
-                  class="btn-do-dropdown"
-                >
-                  <i class="fas fa-ellipsis-v"></i>
-                </button>
+              <td class="td">
+                <div class="dropdown">
+                  <button
+                    onclick="openDropdown('dropdown6')"
+                    class="btn-do-dropdown"
+                  >
+                    <i class="fas fa-ellipsis-v"></i>
+                  </button>
 
-                <div id="dropdown2" class="conteudo-dropdown">
-                  <a href="#editar">Editar</a>
-                  <a href="#campus">Listar Câmpus</a>
-                  <a href="#excluir">Excluir</a>
+                  <div id="dropdown6" class="conteudo-dropdown">
+                    <a href="#editar">Editar</a>
+                    <a href="#excluir">Excluir</a>
+                  </div>
                 </div>
-              </div>
-            </td>
-          </tr>
+              </td>
+            </tr>
 
-          <tr data-course-type="tecnico-concomitante" class="tr">
-            <td class="lista-de-cursos-nome-do-curso td">Agricultura</td>
+            <tr data-course-type="tecnico-concomitante" class="tr">
+              <td class="lista-de-cursos-nome-do-curso td">
+                Técnico concomitante
+              </td>
 
-            <td class="lista-de-cursos-nivel-do-curso td">
-              TÉCNICO CONCOMITANTE
-            </td>
+              <td class="lista-de-cursos-nivel-do-curso td">
+                Descrição Técnico concomitante
+              </td>
 
-            <td class="td">
-              <div class="dropdown">
-                <button
-                  onclick="openDropdown('dropdown3')"
-                  class="btn-do-dropdown"
-                >
-                  <i class="fas fa-ellipsis-v"></i>
-                </button>
+              <td class="td">
+                <div class="dropdown">
+                  <button
+                    onclick="openDropdown('dropdown7')"
+                    class="btn-do-dropdown"
+                  >
+                    <i class="fas fa-ellipsis-v"></i>
+                  </button>
 
-                <div id="dropdown3" class="conteudo-dropdown">
-                  <a href="#editar">Editar</a>
-                  <a href="#campus">Listar Câmpus</a>
-                  <a href="#excluir">Excluir</a>
+                  <div id="dropdown7" class="conteudo-dropdown">
+                    <a href="#editar">Editar</a>
+                    <a href="#excluir">Excluir</a>
+                  </div>
                 </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <!-- Modal de confirmação de exclusão -->
-      <div id="modal-exclusao" class="modal">
-        <div class="modal-content">
-          <div class="confirmar-exclusao">
-            <p class="confirmacao">Confirmação de exclusão</p>
-            <span class="modal-close">&times;</span>
-          </div>
+        <!-- Modal de confirmação de exclusão -->
+        <div id="modal-exclusao" class="modal">
+          <div class="modal-content">
+            <div class="confirmar-exclusao">
+              <p class="confirmacao">Confirmação de exclusão</p>
+              <span class="modal-close">&times;</span>
+            </div>
 
-          <div class="curso-a-ser-excluido">
-            Você está prestes a excluir o curso:
-            <span id="curso-para-excluir" class="curso-para-excluir"></span>
-          </div>
+            <div class="curso-a-ser-excluido">
+              Você está prestes a excluir o curso:
+              <span id="curso-para-excluir" class="curso-para-excluir"></span>
+            </div>
 
-          <div class="botoes-voltar-excluir">
-            <button id="cancelar-exclusao" class="cancelar">Voltar</button>
-            <button id="confirmar-exclusao" class="excluir">Excluir</button>
+            <div class="botoes-voltar-excluir">
+              <button id="cancelar-exclusao" class="cancelar">Voltar</button>
+              <button id="confirmar-exclusao" class="excluir">Excluir</button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <script src="./JS/script.js" defer></script>
+    <script src="./JS/script.js"></script>
   </body>
 </html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar novo Tipo de Curso</title>
+
+    <link rel="stylesheet" href="./CSS/reset.css" />
+
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .criar-tipo-de-curso-titulo {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        flex-grow: 1;
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 20px;
+        color: #0f5f5c;
+      }
+
+      .btn-criar-novo-tipo-de-curso {
+        font-weight: 500;
+        border-radius: 0.25rem;
+        background: #0d4f4d;
+        color: #fff;
+        font-size: 0.875rem;
+        cursor: pointer;
+        padding: 0.7rem 1.25rem;
+        border: none;
+        text-align: center;
+        text-transform: none;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      .criar-tipo-de-curso-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .criar-tipo-de-curso-form > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .text {
+        width: 100%;
+        padding: 0.625rem;
+        margin-bottom: 1.25rem;
+        background-color: #fff;
+        border-color: #ced4da;
+        border-style: solid;
+        border-width: 0.0625rem;
+        border-bottom-width: 0.0625rem;
+        border-left-width: 0.0625rem;
+        border-right-width: 0.0625rem;
+        border-top-width: 0.0625rem;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        margin-top: 0.625rem;
+        font-size: 1rem;
+      }
+
+      .text:focus {
+        border-color: #0f5f5c;
+        outline: none;
+      }
+
+      .botoes-voltar-excluir {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 0.938rem;
+        padding: 0.875rem 0.938rem 0.938rem;
+        margin-bottom: 0;
+      }
+
+      .cancelar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+        padding: 0.625rem 1.25rem;
+        border-radius: 0.25rem;
+        border: 1px solid #c7c7c7;
+        color: #333;
+        cursor: pointer;
+      }
+
+      .criar {
+        border-radius: 0.25rem;
+        background: #0d4f4d;
+        color: #fff;
+        font-size: 0.875rem;
+        cursor: pointer;
+        padding: 0.7rem 1.25rem;
+        border: none;
+        text-align: center;
+        text-transform: none;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="criar-tipo-de-curso-titulo">
+      <h4>Criar tipo de Curso</h4>
+    </div>
+
+    <form id="formulario-criar-campus">
+      <div class="criar-tipo-de-curso-form">
+        <div>
+          <label for="tipo-de-curso">Nome</label>
+          <input
+            class="text"
+            type="text"
+            id="tipo-de-curso"
+            name="tipo-de-curso"
+            placeholder="Digite o tipo de curso"
+          />
+        </div>
+
+        <div>
+          <label for="descricao">Descrição</label>
+          <input
+            class="text"
+            type="text"
+            id="descricao"
+            name="descricao"
+            placeholder="Digite a descrição"
+          />
+        </div>
+
+        <div class="botoes-voltar-excluir">
+          <button id="cancelar-exclusao" class="cancelar">Voltar</button>
+          <button id="confirmar-exclusao" class="criar">Criar tipo de curso</button>
+        </div>
+    </form>
+
+    <script src="./JS/criar-tipo-de-curso.js" defer></script>
+  </body>
+</html>
