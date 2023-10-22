@@ -135,56 +135,6 @@
         color: #a4a4a4;
         text-transform: uppercase;
       }
-
-      thead {
-        padding: 0.75rem 1.25rem 0.625rem 1.25rem;
-      }
-
-      .gestao-de-cursos-tabela-campus {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 2rem;
-      }
-
-      tr {
-        border-top: 1px solid #dddddd;
-        border-bottom: 1px solid #dddddd;
-      }
-
-      tr:hover {
-        background-color: #2f9e40;
-      }
-
-      tr:hover td {
-        color: #ffffff;
-      }
-
-      td {
-        padding: 0.75rem 1.25rem 0.625rem 1.25rem;
-      }
-
-      th {
-        text-align-last: left;
-        padding: 0.75rem 1.25rem 0.625rem 1.25rem;
-      }
-
-      .campus td:last-child {
-        text-align: left;
-      }
-
-      .lista-de-cursos-nome-do-curso {
-        font-size: 0.875rem;
-        font-weight: 600;
-        color: #4a5058;
-      }
-
-      .lista-de-cursos-nivel-do-curso {
-        font-family: "Roboto", sans-serif;
-        font-weight: 600;
-        font-size: 0.75rem;
-        color: #a4a4a4;
-        text-transform: uppercase;
-      }
     </style>
   </head>
 
@@ -195,7 +145,7 @@
       <div class="gestao-de-cursos-select-e-criar-curso">
         <form>
           <select
-            id="lista-de-cursos"
+            id="lista-de-tipos-de-cursos"
             name="lista-de-cursos"
             class="lista-de-cursos"
           >
@@ -212,7 +162,12 @@
         </form>
 
         <div>
-          <button class="gestao-de-cursos-criar-curso">Criar Curso</button>
+          <button
+            onclick="openModal('modal-criar-curso')"
+            class="gestao-de-cursos-criar-curso"
+          >
+            Criar Curso
+          </button>
         </div>
 
         <!-- <div class="dropdown">
@@ -334,7 +289,7 @@
             <div>
               <table class="gestao-de-cursos-tabela-campus campus">
                 <thead>
-                  <tr>
+                  <tr class="titulo-tabela-campus">
                     <th>Nome do Câmpus</th>
                     <th>Status</th>
                     <th>Ações</th>
@@ -437,6 +392,92 @@
           <h1 class="title">Deseja realmente excluir este curso?</h1>
           <!-- Conteúdo adicional -->
           <button onclick="closeModal('modal-excluir')">Fechar</button>
+        </div>
+      </div>
+
+      <!-- Modal Criar Curso -->
+      <div id="modal-criar-curso" class="modal">
+        <div class="content">
+          <div class="modal-titulo">
+            <h4>Criar Curso</h4>
+          </div>
+
+          <div class="conteudo-modal-criar-curso">
+            <form>
+              <div class="linha1">
+                <div class="box">
+                  <label for="nomeCurso">Nome do Curso</label>
+                  <input
+                    type="text"
+                    id="nomeCurso"
+                    name="nomeCurso"
+                    placeholder="Digite o nome do curso"
+                  />
+                </div>
+
+                <div class="box checkbox">
+                  <label>
+                    <input type="checkbox" id="cursoEAD" name="cursoEAD" />
+                    É um curso EAD?
+                  </label>
+                </div>
+              </div>
+
+              <div class="linha2">
+                <div class="box">
+                  <label for="tipoCurso">Tipo de Curso</label>
+                  <select id="tipoCurso" name="tipoCurso">
+                    <option value="" selected>
+                      Selecione um tipo de curso
+                    </option>
+                  </select>
+                </div>
+
+                <div class="box">
+                  <label for="tamanhoTitulo">Tamanho do título</label>
+                  <input
+                    type="text"
+                    id="tamanhoTitulo"
+                    name="tamanhoTitulo"
+                    placeholder="Digite o tamanho do título"
+                  />
+                </div>
+              </div>
+
+              <div class="linha3">
+                <div class="box">
+                  <label for="idVideo">ID do vídeo</label>
+                  <input type="text" id="idVideo" name="idVideo" />
+                </div>
+
+                <div class="box">
+                  <label for="imagemCurso">Imagem</label>
+                  <input type="file" id="imagemCurso" name="imagemCurso" />
+                </div>
+              </div>
+
+              <label for="descricaoCurso">Descrição do Curso</label>
+              <textarea
+                id="descricaoCurso"
+                name="descricaoCurso"
+                rows="4"
+                cols="50"
+              ></textarea>
+            </form>
+          </div>
+
+          <div class="modal-criar-curso-footer">
+            <button
+              class="btn-voltar-novo-curso"
+              onclick="closeModal('modal-criar-curso')"
+            >
+              Voltar
+            </button>
+
+            <button type="submit" value="Enviar" class="btn-criar-novo-curso">
+              Criar novo curso
+            </button>
+          </div>
         </div>
       </div>
     </section>
