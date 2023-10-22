@@ -96,29 +96,29 @@
         margin-top: 2rem;
       }
 
-      tr {
+      .tr {
         border-top: 1px solid #dddddd;
         border-bottom: 1px solid #dddddd;
       }
 
-      tr:hover {
+      .tr:hover {
         background-color: #2f9e40;
       }
 
-      tr:hover td {
+      .tr:hover .td {
         color: #ffffff;
       }
 
-      td {
+      .td {
         padding: 0.75rem 1.25rem 0.625rem 1.25rem;
       }
 
-      th {
+      .th {
         text-align-last: left;
         padding: 0.75rem 1.25rem 0.625rem 1.25rem;
       }
 
-      .cursos td:last-child {
+      .cursos .td:last-child {
         text-align: center;
       }
 
@@ -134,6 +134,113 @@
         font-size: 0.75rem;
         color: #a4a4a4;
         text-transform: uppercase;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        border: 1px solid #888;
+        width: 50%;
+        box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2),
+          0 0.375rem 1.25rem 0 rgba(0, 0, 0, 0.19);
+        border-radius: 0.25rem;
+      }
+
+      .confirmar-exclusao {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.625rem 0.938rem;
+        border-bottom: 1px solid #eeeeee;
+      }
+
+      .confirmacao {
+        flex-grow: 1;
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-top: 0;
+        margin-bottom: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .curso-para-excluir {
+        font-weight: 600;
+      }
+
+      .curso-a-ser-excluido {
+        padding: 0.938rem;
+        overflow-y: auto;
+        max-height: 25rem;
+      }
+
+      .modal-close {
+        font-weight: bold;
+      }
+
+      .botoes-voltar-excluir {
+        display: flex;
+        gap: 0.938rem;
+        padding: 0.875rem 0.938rem 0.938rem;
+        margin-bottom: 0;
+        background-color: #f5f5f5;
+        border-top: 1px solid #ddd;
+        border-radius: 0 0 0.375rem 0.375rem;
+        box-shadow: inset 0 1px 0 #fff;
+      }
+
+      .modal-close {
+        color: #aaa;
+        float: right;
+        font-size: 1.75rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .modal-close:hover,
+      .modal-close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .cancelar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+        padding: 0.625rem 1.25rem;
+        border-radius: 0.25rem;
+        border: 1px solid #c7c7c7;
+        color: #333;
+        cursor: pointer;
+      }
+
+      .excluir {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+        padding: 0.625rem 1.25rem;
+        border-radius: 0.25rem;
+        border: 1px solid #cf0404;
+        color: #fff;
+        cursor: pointer;
+        background-color: #cf0404;
       }
     </style>
   </head>
@@ -170,12 +277,12 @@
     <section>
       <table class="gestao-de-cursos-tabela cursos">
         <tbody>
-          <tr data-course-type="tecnico-integrado">
-            <td class="lista-de-cursos-nome-do-curso">Administração</td>
+          <tr data-course-type="tecnico-integrado" class="tr">
+            <td class="lista-de-cursos-nome-do-curso td">Administração</td>
 
-            <td class="lista-de-cursos-nivel-do-curso">TÉCNICO INTEGRADO</td>
+            <td class="lista-de-cursos-nivel-do-curso td">TÉCNICO INTEGRADO</td>
 
-            <td>
+            <td class="td">
               <div class="dropdown">
                 <button
                   onclick="openDropdown('dropdown1')"
@@ -193,16 +300,16 @@
             </td>
           </tr>
 
-          <tr data-course-type="qualificacao-profissional">
-            <td class="lista-de-cursos-nome-do-curso">
+          <tr data-course-type="qualificacao-profissional" class="tr">
+            <td class="lista-de-cursos-nome-do-curso td">
               Administração e empreendedorismo rural
             </td>
 
-            <td class="lista-de-cursos-nivel-do-curso">
+            <td class="lista-de-cursos-nivel-do-curso td">
               QUALIFICAÇÃO PROFISSIONAL
             </td>
 
-            <td>
+            <td class="td">
               <div class="dropdown">
                 <button
                   onclick="openDropdown('dropdown2')"
@@ -220,12 +327,14 @@
             </td>
           </tr>
 
-          <tr data-course-type="tecnico-concomitante">
-            <td class="lista-de-cursos-nome-do-curso">Agricultura</td>
+          <tr data-course-type="tecnico-concomitante" class="tr">
+            <td class="lista-de-cursos-nome-do-curso td">Agricultura</td>
 
-            <td class="lista-de-cursos-nivel-do-curso">TÉCNICO CONCOMITANTE</td>
+            <td class="lista-de-cursos-nivel-do-curso td">
+              TÉCNICO CONCOMITANTE
+            </td>
 
-            <td>
+            <td class="td">
               <div class="dropdown">
                 <button
                   onclick="openDropdown('dropdown3')"
@@ -235,15 +344,35 @@
                 </button>
 
                 <div id="dropdown3" class="conteudo-dropdown">
-                  <a href="#">Editar</a>
-                  <a href="#">Listar Câmpus</a>
-                  <a href="#">Excluir</a>
+                  <a href="#editar">Editar</a>
+                  <a href="#campus">Listar Câmpus</a>
+                  <a href="#excluir">Excluir</a>
                 </div>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
+
+      <!-- Modal de confirmação de exclusão -->
+      <div id="modal-exclusao" class="modal">
+        <div class="modal-content">
+          <div class="confirmar-exclusao">
+            <p class="confirmacao">Confirmação de exclusão</p>
+            <span class="modal-close">&times;</span>
+          </div>
+
+          <div class="curso-a-ser-excluido">
+            Você está prestes a excluir o curso:
+            <span id="curso-para-excluir" class="curso-para-excluir"></span>
+          </div>
+
+          <div class="botoes-voltar-excluir">
+            <button id="cancelar-exclusao" class="cancelar">Voltar</button>
+            <button id="confirmar-exclusao" class="excluir">Excluir</button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <script src="./JS/script.js" defer></script>

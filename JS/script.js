@@ -69,3 +69,35 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+let modal = document.getElementById("modal-exclusao");
+let cursoParaExcluir = document.getElementById("curso-para-excluir");
+let modalClose = document.getElementsByClassName("modal-close")[0];
+let cancelarExclusao = document.getElementById("cancelar-exclusao");
+let confirmarExclusao = document.getElementById("confirmar-exclusao");
+
+// Abre a modal quando clicar em Excluir
+document.querySelectorAll('.conteudo-dropdown a[href="#excluir"]').forEach(item => {
+  item.addEventListener('click', function (e) {
+    e.preventDefault();
+    cursoParaExcluir.textContent = e.target.closest('tr').querySelector('.lista-de-cursos-nome-do-curso').textContent;
+    modal.style.display = "block";
+  });
+});
+
+modalClose.onclick = function () {
+  modal.style.display = "none";
+}
+
+cancelarExclusao.onclick = function () {
+  modal.style.display = "none";
+}
+
+confirmarExclusao.onclick = function () {
+  modal.style.display = "none";
+}
+
+window.onclick = function (event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
