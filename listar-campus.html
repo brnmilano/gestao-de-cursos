@@ -38,7 +38,7 @@
           border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       }
 
-      thead {
+      .thead {
         padding: 0.75rem 1.25rem 0.625rem 1.25rem;
       }
 
@@ -56,24 +56,24 @@
         background-color: #ffffff;
       }
 
-      tr {
+      .tr {
         border-top: 1px solid #dddddd;
         border-bottom: 1px solid #dddddd;
       }
 
-      tr:hover {
+      .tr:hover {
         background-color: #2f9e40;
       }
 
-      tr:hover td {
+      .tr:hover td {
         color: #ffffff;
       }
 
-      td {
+      .td {
         padding: 0.75rem 1.25rem 0.625rem 1.25rem;
       }
 
-      th {
+      .th {
         text-align-last: left;
         padding: 0.75rem 1.25rem 0.625rem 1.25rem;
       }
@@ -110,7 +110,7 @@
     </style>
   </head>
   <body>
-    <div id="modal-campus" class="modal">
+    <div id="listar-campus" class="listar-campus">
       <div class="content">
         <div class="conteudo-listar-campus">
           <div>
@@ -119,23 +119,23 @@
 
           <div>
             <table class="gestao-de-cursos-tabela-campus campus">
-              <thead>
-                <tr class="titulo-tabela-campus">
-                  <th>Nome do Câmpus</th>
-                  <th>Status</th>
-                  <th>Ações</th>
+              <thead class="thead">
+                <tr class="titulo-tabela-campus tr">
+                  <th class="th">Nome do Câmpus</th>
+                  <th class="th">Status</th>
+                  <th class="th">Ações</th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <td class="lista-trocar-campus-nome">
+                <tr class="tr">
+                  <td class="lista-trocar-campus-nome td">
                     Câmpus Caçador (Câmpus Caçador)
                   </td>
 
-                  <td class="lista-trocar-campus-status">Desativado</td>
+                  <td class="lista-trocar-campus-status td">Desativado</td>
 
-                  <td>
+                  <td class="td">
                     <div class="dropdown">
                       <button
                         onclick="openDropdown('dropdown-campus1')"
@@ -154,14 +154,14 @@
                   </td>
                 </tr>
 
-                <tr>
-                  <td class="lista-trocar-campus-nome">
+                <tr class="tr">
+                  <td class="lista-trocar-campus-nome td">
                     Câmpus Caçador (Câmpus Caçador)
                   </td>
 
-                  <td class="lista-trocar-campus-status">Desativado</td>
+                  <td class="lista-trocar-campus-status td">Desativado</td>
 
-                  <td>
+                  <td class="td">
                     <div class="dropdown">
                       <button
                         onclick="openDropdown('dropdown-campus2')"
@@ -180,14 +180,14 @@
                   </td>
                 </tr>
 
-                <tr>
-                  <td class="lista-trocar-campus-nome">
+                <tr class="tr">
+                  <td class="lista-trocar-campus-nome td">
                     Câmpus São Lourenço do Oeste (Câmpus São Lourenço do Oeste)
                   </td>
 
-                  <td class="lista-trocar-campus-status">Ativado</td>
+                  <td class="lista-trocar-campus-status td">Ativado</td>
 
-                  <td>
+                  <td class="td">
                     <div class="dropdown">
                       <button
                         onclick="openDropdown('dropdown-campus3')"

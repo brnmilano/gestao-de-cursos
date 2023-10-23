@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Forma de ingresso</title>
+
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        />
+
+        <link rel="stylesheet" href="./CSS/global.css" />
+        <link rel="stylesheet" href="./CSS/reset.css" />
+
+        <style>
+          body {
+            font-family: "Open Sans", sans-serif;
+            width: 100%;
+            overflow: hidden;
+          }
+
+          .forma-de-ingresso-lista {
+            padding: 20px;
+          }
+
+          .criar-tipo-titulo {
+            color: #0f5f5c;
+            font-weight: lighter;
+            font-family: "Roboto", sans-serif;
+            font-size: 2rem;
+          }
+
+          .titulo-btn-criar {
+            display: flex;
+            justify-content: space-between;
+            padding-right: 100px;
+          }
+
+          .criar-tipo {
+            border-radius: 0.25rem;
+            background: #0d4f4d;
+            color: #fff;
+            font-size: 0.875rem;
+            cursor: pointer;
+            padding: 0.7rem 1.25rem;
+            border: none;
+            text-align: center;
+            text-transform: none;
+            transition: color 0.15s ease-in-out,
+              background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+              box-shadow 0.15s ease-in-out;
+          }
+
+          .lista-de-forma {
+            padding-right: 1.75rem;
+            color: #495057;
+            background-size: 0.5rem 0.625rem;
+            cursor: pointer;
+            background-color: #fff;
+            border-color: #ced4da;
+            border-style: solid;
+            border-width: 0.0625rem;
+            border-bottom-width: 0.0625rem;
+            border-left-width: 0.0625rem;
+            border-right-width: 0.0625rem;
+            border-top-width: 0.0625rem;
+            border-radius: 0.25rem;
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            height: 2.375rem;
+            line-height: 1.5;
+            min-width: 20.625rem;
+            padding-bottom: 0.375rem;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            padding-top: 0.375rem;
+            transition: border-color 0.15s ease-in-out,
+              box-shadow 0.15s ease-in-out;
+            width: 100%;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+          }
+
+          .lista-de-forma:focus {
+            border-color: #0f5f5c;
+            outline: none;
+          }
+
+          .lista-de-forma::ms-expand {
+            display: none;
+          }
+
+          .gestao-de-cursos-criar-curso:hover {
+            opacity: 0.85;
+          }
+
+          .btn-engrenagem {
+            border-radius: 0.25rem;
+            background: #ededed;
+            color: #000;
+            font-size: 0.875rem;
+            cursor: pointer;
+            padding: 0.65rem 1.25rem;
+            border: 1px solid #b4b1b1;
+            text-align: center;
+            text-transform: none;
+            transition: color 0.15s ease-in-out,
+              background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+              box-shadow 0.15s ease-in-out;
+          }
+
+          .gestao-de-formas-tabela {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+          }
+
+          .tr {
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+          }
+
+          .tr:hover {
+            background-color: #2f9e40;
+          }
+
+          .tr:hover .td {
+            color: #ffffff;
+          }
+
+          .td {
+            padding: 0.75rem 1.25rem 0.625rem 1.25rem;
+          }
+
+          .th {
+            text-align-last: left;
+            padding: 0.75rem 1.25rem 0.625rem 1.25rem;
+          }
+
+          thead,
+          .theadtr:hover {
+            background-color: #ffffff;
+          }
+
+          .lista-de-forma-de-ingresso {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #4a5058;
+          }
+
+          .lista-de-forma-descricao {
+            font-family: "Roboto", sans-serif;
+            font-weight: 600;
+            font-size: 0.75rem;
+            color: #a4a4a4;
+            text-transform: uppercase;
+          }
+
+          .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+          }
+
+          .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            border: 1px solid #888;
+            width: 50%;
+            box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2),
+              0 0.375rem 1.25rem 0 rgba(0, 0, 0, 0.19);
+            border-radius: 0.25rem;
+          }
+
+          .confirmar-exclusao {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.625rem 0.938rem;
+            border-bottom: 1px solid #eeeeee;
+          }
+
+          .confirmacao {
+            flex-grow: 1;
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-top: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-family: "Roboto", sans-serif;
+          }
+
+          .forma-para-excluir {
+            font-weight: 600;
+          }
+
+          .forma-a-ser-excluido {
+            padding: 0.938rem;
+            overflow-y: auto;
+            max-height: 25rem;
+          }
+
+          .modal-close {
+            font-weight: bold;
+          }
+
+          .botoes-voltar-excluir {
+            display: flex;
+            gap: 0.938rem;
+            padding: 0.875rem 0.938rem 0.938rem;
+            margin-bottom: 0;
+            background-color: #f5f5f5;
+            border-top: 1px solid #ddd;
+            border-radius: 0 0 0.375rem 0.375rem;
+            box-shadow: inset 0 1px 0 #fff;
+          }
+
+          .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 1.75rem;
+            font-weight: bold;
+            cursor: pointer;
+          }
+
+          .modal-close:hover,
+          .modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+          }
+
+          .cancelar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.25rem;
+            border: 1px solid #c7c7c7;
+            color: #333;
+            cursor: pointer;
+          }
+
+          .excluir {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.25rem;
+            border: 1px solid #cf0404;
+            color: #fff;
+            cursor: pointer;
+            background-color: #cf0404;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="forma-de-ingresso-lista">
+          <section class="titulo-btn-criar">
+            <h1 class="criar-tipo-titulo">Forma de ingresso</h1>
+
+            <button class="criar-tipo">Criar firma de ingresso</button>
+          </section>
+
+          <section>
+            <table class="gestao-de-formas-tabela cursos">
+              <thead class="thead">
+                <tr class="titulo-tabela-campus theadtr">
+                  <th class="th">Nome</th>
+                  <th class="th">Descrição</th>
+                  <th class="th">Ações</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr data-course-type="tecnico-integrado" class="tr">
+                  <td class="lista-de-forma-de-ingresso td">Vestibular</td>
+
+                  <td class="lista-de-forma-descricao td">
+                    Descrição Vestibular
+                  </td>
+
+                  <td class="td">
+                    <div class="dropdown">
+                      <button
+                        onclick="openDropdown('dropdown5')"
+                        class="btn-do-dropdown"
+                      >
+                        <i class="fas fa-ellipsis-v"></i>
+                      </button>
+
+                      <div id="dropdown5" class="conteudo-dropdown">
+                        <a href="#editar">Editar</a>
+                        <a href="#excluir">Excluir</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr data-course-type="qualificacao-profissional" class="tr">
+                  <td class="lista-de-forma-de-ingresso td">ENEM</td>
+
+                  <td class="lista-de-forma-descricao td">Descrição ENEM</td>
+
+                  <td class="td">
+                    <div class="dropdown">
+                      <button
+                        onclick="openDropdown('dropdown6')"
+                        class="btn-do-dropdown"
+                      >
+                        <i class="fas fa-ellipsis-v"></i>
+                      </button>
+
+                      <div id="dropdown6" class="conteudo-dropdown">
+                        <a href="#editar">Editar</a>
+                        <a href="#excluir">Excluir</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr data-course-type="tecnico-concomitante" class="tr">
+                  <td class="lista-de-forma-de-ingresso td">Peixada</td>
+
+                  <td class="lista-de-forma-descricao td">Descrição Peixada</td>
+
+                  <td class="td">
+                    <div class="dropdown">
+                      <button
+                        onclick="openDropdown('dropdown7')"
+                        class="btn-do-dropdown"
+                      >
+                        <i class="fas fa-ellipsis-v"></i>
+                      </button>
+
+                      <div id="dropdown7" class="conteudo-dropdown">
+                        <a href="#editar">Editar</a>
+                        <a href="#excluir">Excluir</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Modal de confirmação de exclusão -->
+            <div id="modal-exclusao" class="modal">
+              <div class="modal-content">
+                <div class="confirmar-exclusao">
+                  <p class="confirmacao">Confirmação de exclusão</p>
+                  <span class="modal-close">&times;</span>
+                </div>
+
+                <div class="forma-a-ser-excluido">
+                  Você está prestes a excluir o curso:
+                  <span
+                    id="forma-para-excluir"
+                    class="forma-para-excluir"
+                  ></span>
+                </div>
+
+                <div class="botoes-voltar-excluir">
+                  <button id="cancelar-exclusao" class="cancelar">
+                    Voltar
+                  </button>
+                  <button id="confirmar-exclusao" class="excluir">
+                    Excluir
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <script src="./JS/script.js"></script>
+      </body>
+    </html>
+  </body>
+</html>

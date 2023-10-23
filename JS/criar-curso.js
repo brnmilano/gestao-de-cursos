@@ -1,4 +1,3 @@
-// Função executada dentro da modal Criar Curso - Faz a captura do value de todos os inputs e envia o form
 document.addEventListener("DOMContentLoaded", function () {
   const formulario = document.getElementById("formulario-criar-curso");
 
