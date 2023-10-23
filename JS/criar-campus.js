@@ -29,16 +29,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     console.log(formObject);
-
-    fetch('www.google.com', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formObject)
-    })
-      .then(response => response.json())
-      .then(data => { })
-      .catch(error => { });
   });
 });
