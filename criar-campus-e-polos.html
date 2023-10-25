@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Câmpus e Polos</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./CSS/global.css" />
+    <link rel="stylesheet" href="./CSS/reset.css" />
+
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        width: 100%;
+        overflow: hidden;
+        background-color: #c7c7c7;
+      }
+
+      .criar-campus-e-polos {
+        padding: 0.948rem;
+      }
+
+      h4 {
+        color: #0f5f5c;
+        font-weight: lighter;
+        font-family: "Roboto", sans-serif;
+        font-size: 2rem;
+        border-bottom: 1px solid #f5f5f5;
+        padding: 0.948rem 0;
+      }
+
+      .criar-campus-e-polo {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: #ffffff;
+        padding: 0.948rem;
+        border-radius: 0.625rem;
+        margin-top: 0.948rem;
+      }
+
+      h5 {
+        color: #0f5f5c;
+        padding-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .criar-campus-conteudo {
+        border-bottom: 1px solid #c7c7c7;
+        padding-bottom: 0.948rem;
+      }
+
+      .item {
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+        width: 50%;
+      }
+
+      .input-label {
+        width: 70%;
+      }
+
+      .text {
+        width: 100%;
+        max-width: 400px;
+        padding: 0.625rem;
+        background-color: #fff;
+        border-color: #ced4da;
+        border-style: solid;
+        border-width: 0.0625rem;
+        border-bottom-width: 0.0625rem;
+        border-left-width: 0.0625rem;
+        border-right-width: 0.0625rem;
+        border-top-width: 0.0625rem;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        margin-top: 0.625rem;
+        font-size: 1rem;
+      }
+
+      .campo-btn {
+        display: flex;
+      }
+
+      .btn-criar-polo,
+      .btn-criar-campus {
+        border-radius: 0.25rem;
+        background: #0d4f4d;
+        color: #fff;
+        font-size: 0.875rem;
+        cursor: pointer;
+        padding: 0.7rem 1.25rem;
+        border: none;
+        text-align: center;
+        text-transform: none;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="criar-campus-e-polos">
+      <section>
+        <h4>Criar Câmpus e Polos</h4>
+      </section>
+
+      <section class="criar-campus-e-polo">
+        <div class="criar-campus-conteudo">
+          <h5>Criar Câmpus</h5>
+
+          <div class="item">
+            <div>
+              <input class="text" list="brow" placeholder="Lista de Câmpus" />
+              <datalist id="brow">
+                <option value="Polo teste 01"></option>
+                <option value="Polo teste 02"></option>
+                <option value="Polo teste 03"></option>
+                <option value="Polo teste 04"></option>
+                <option value="Polo teste 05"></option>
+              </datalist>
+            </div>
+
+            <div class="input-label">
+              <label for="criar-campus-nome">Nome do Câmpus</label>
+              <input
+                class="text"
+                type="text"
+                name="criar-campus-nome"
+                id="criar-campus-nome"
+                placeholder="Digite o nome"
+              />
+            </div>
+
+            <div class="campo-btn">
+              <button class="btn-criar-campus">Criar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="criar-polo-conteudo">
+          <h5>Criar Polos</h5>
+
+          <div class="item">
+            <div>
+              <input class="text" list="brow" placeholder="Lista de Polos" />
+              <datalist id="brow">
+                <option value="Polo teste 01"></option>
+                <option value="Polo teste 02"></option>
+                <option value="Polo teste 03"></option>
+                <option value="Polo teste 04"></option>
+                <option value="Polo teste 05"></option>
+              </datalist>
+            </div>
+
+            <div class="input-label">
+              <label for="criar-polo-nome">Nome do Polo</label>
+              <input
+                class="text"
+                type="text"
+                name="criar-polo-nome"
+                id="criar-polo-nome"
+                placeholder="Digite o nome"
+              />
+            </div>
+
+            <div class="campo-btn">
+              <button class="btn-criar-polo">Criar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./JS/criar-campus-e-polo.js" defer></script>
+  </body>
+</html>
