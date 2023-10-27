@@ -7,11 +7,105 @@
 
     <link rel="stylesheet" href="./CSS/global.css" />
     <link rel="stylesheet" href="./CSS/reset.css" />
+
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        width: 100%;
+        overflow: auto;
+      }
+
+      .titulo-e-buscas {
+        display: flex;
+        gap: 0.938rem;
+        padding: 0.938rem 0 0 0.938rem;
+      }
+
+      h4 {
+        color: #0f5f5c;
+        font-weight: lighter;
+        font-family: "Roboto", sans-serif;
+        font-size: 2rem;
+      }
+
+      .formulario-select-e-buscar {
+        display: flex;
+        gap: 0.625rem;
+        width: 70%;
+      }
+
+      .input-buscar-curso,
+      .select-lista-de-cursos {
+        width: 100%;
+        padding: 10px;
+        background-color: #fff;
+        border-color: #ced4da;
+        border-style: solid;
+        border-width: 0.0625rem;
+        border-bottom-width: 0.0625rem;
+        border-left-width: 0.0625rem;
+        border-right-width: 0.0625rem;
+        border-top-width: 0.0625rem;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+      }
+
+      .checkbox-ead-e-inscricoes-abertas {
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
     <div class="tela-superiores-de-tecnologia">
-      <section>
+      <section class="titulo-e-buscas">
         <h4>Superiores de tecnologia</h4>
+
+        <form class="formulario-select-e-buscar">
+          <select
+            id="select-lista-de-cursos"
+            name="select-lista-de-cursos"
+            class="select-lista-de-cursos"
+          >
+            <option value="todos-os-niveis" selected>Todos os níveis</option>
+            <option value="Mestrado (EaD)">Mestrado (EaD)</option>
+            <option value="MBA">MBA</option>
+            <option value="Graduação">Graduação</option>
+          </select>
+
+          <input
+            type="search"
+            name="input-buscar-curso"
+            id="input-buscar-curso"
+            class="input-buscar-curso"
+          />
+
+          <div class="checkbox-ead-e-inscricoes-abertas">
+            <div>
+              <input
+                type="checkbox"
+                name="apenas-cursos-a-distancia"
+                id="apenas-cursos-a-distancia"
+              />
+              <label for="apenas-cursos-a-distancia">
+                Apenas Cursos a Distância (EaD)
+              </label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                name="apenas-cursos-a-distancia"
+                id="apenas-cursos-a-distancia"
+              />
+              <label for="apenas-cursos-a-distancia">
+                Apenas Cursos com Inscrições Abertas
+              </label>
+            </div>
+          </div>
+        </form>
       </section>
     </div>
   </body>
