@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="./CSS/global.css" />
     <link rel="stylesheet" href="./CSS/reset.css" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
     <style>
       body {
         font-family: "Open Sans", sans-serif;
@@ -51,10 +56,91 @@
         appearance: none;
         -moz-appearance: none;
         -webkit-appearance: none;
+        position: relative;
+      }
+
+      .select-lista-de-cursos {
+        -webkit-appearance: none;
+        appearance: none;
+        background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><path d='M6 8l4 4 4-4z'/></svg>")
+          no-repeat right center;
+        background-color: #fff;
+        padding-right: 30px;
+      }
+
+      .input-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .icone-lupa {
+        position: absolute;
+        top: 50%;
+        right: 0.625rem;
+        transform: translateY(-50%);
+        width: 1.5rem;
+        height: 1.5rem;
+        background-image: url(./IMG/search-icon.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
       }
 
       .checkbox-ead-e-inscricoes-abertas {
         width: 100%;
+      }
+
+      .checkbox-conteudo {
+        display: flex;
+        align-items: center;
+        gap: 0.313rem;
+      }
+
+      .checkbox-conteudo label {
+        font-size: 0.75rem;
+      }
+
+      .tabela-conteudo {
+        padding: 1rem;
+      }
+
+      .tabela-superiores-de-tecnologia {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 2rem;
+        padding: 1rem;
+      }
+
+      .lista-de-cursos-nome-do-curso {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #4a5058;
+      }
+
+      .lista-de-cursos-nivel-do-curso {
+        font-family: "Roboto", sans-serif;
+        font-weight: 600;
+        font-size: 0.75rem;
+        color: #a4a4a4;
+        text-transform: uppercase;
+      }
+
+      .tr {
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+      }
+
+      .tr:hover {
+        background-color: #2f9e40;
+      }
+
+      .tr:hover .td {
+        color: #ffffff;
+      }
+
+      .td {
+        padding: 2rem 1rem;
       }
     </style>
   </head>
@@ -75,15 +161,19 @@
             <option value="Graduação">Graduação</option>
           </select>
 
-          <input
-            type="search"
-            name="input-buscar-curso"
-            id="input-buscar-curso"
-            class="input-buscar-curso"
-          />
+          <div class="input-wrapper">
+            <input
+              type="search"
+              name="input-buscar-curso"
+              id="input-buscar-curso"
+              placeholder="Buscar Curso"
+              class="input-buscar-curso"
+            />
+            <span class="icone-lupa"></span>
+          </div>
 
           <div class="checkbox-ead-e-inscricoes-abertas">
-            <div>
+            <div class="checkbox-conteudo">
               <input
                 type="checkbox"
                 name="apenas-cursos-a-distancia"
@@ -94,18 +184,66 @@
               </label>
             </div>
 
-            <div>
+            <div class="checkbox-conteudo">
               <input
                 type="checkbox"
-                name="apenas-cursos-a-distancia"
-                id="apenas-cursos-a-distancia"
+                name="apenas-inscricoes-abertas"
+                id="apenas-inscricoes-abertas"
               />
-              <label for="apenas-cursos-a-distancia">
+              <label for="apenas-inscricoes-abertas">
                 Apenas Cursos com Inscrições Abertas
               </label>
             </div>
           </div>
         </form>
+      </section>
+
+      <section class="tabela-conteudo">
+        <table class="tabela-superiores-de-tecnologia">
+          <tbody>
+            <tr data-course-type="" class="tr">
+              <td class="lista-de-cursos-nome-do-curso td">
+                Análise e Desenvolvimento de Sistemas
+              </td>
+
+              <td class="lista-de-cursos-nivel-do-curso td">
+                Câmpus Canoinhas
+              </td>
+
+              <td class="td">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </td>
+            </tr>
+
+            <tr data-course-type="" class="tr">
+              <td class="lista-de-cursos-nome-do-curso td">
+                Análise e Desenvolvimento de Sistemas
+              </td>
+
+              <td class="lista-de-cursos-nivel-do-curso td">
+                Câmpus Canoinhas
+              </td>
+
+              <td class="td">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </td>
+            </tr>
+
+            <tr data-course-type="" class="tr">
+              <td class="lista-de-cursos-nome-do-curso td">
+                Análise e Desenvolvimento de Sistemas
+              </td>
+
+              <td class="lista-de-cursos-nivel-do-curso td">
+                Câmpus Canoinhas
+              </td>
+
+              <td class="td">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </section>
     </div>
   </body>
