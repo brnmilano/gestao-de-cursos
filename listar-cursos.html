@@ -126,17 +126,14 @@
 
         <form>
           <select
-            id="lista-de-tipos-de-cursos"
+            id="lista-de-cursos"
             name="lista-de-cursos"
             class="lista-de-cursos"
-            onchange="filtrarCursos()"
           >
-            <option value="todos-os-cursos" selected>
-              Todos os tipos de cursos
-            </option>
-            <option value="Direito">Direito</option>
-            <option value="Medicina">Medicina</option>
-            <option value="Biomedicina">Biomedicina</option>
+            <option value="todos-os-niveis" selected>Todos os níveis</option>
+            <option value="Mestrado (EaD)">Mestrado (EaD)</option>
+            <option value="MBA">MBA</option>
+            <option value="Graduação">Graduação</option>
           </select>
         </form>
       </section>
@@ -153,7 +150,7 @@
           </thead>
 
           <tbody>
-            <tr class="tr">
+            <tr class="tr" data-nivel="Mestrado (EaD)">
               <td class="lista-trocar-campus-nome td">Polo Canelinha</td>
 
               <td class="lista-trocar-campus-status td">Mestrado (EaD)</td>
@@ -178,7 +175,7 @@
               </td>
             </tr>
 
-            <tr class="tr">
+            <tr class="tr" data-nivel="MBA">
               <td class="lista-trocar-campus-nome td">Polo IFSC</td>
 
               <td class="lista-trocar-campus-status td">MBA</td>
@@ -203,7 +200,7 @@
               </td>
             </tr>
 
-            <tr class="tr">
+            <tr class="tr" data-nivel="Graduação">
               <td class="lista-trocar-campus-nome td">Polo UnB</td>
 
               <td class="lista-trocar-campus-status td">Graduação</td>

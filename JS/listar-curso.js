@@ -37,21 +37,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function filtrarCursos() {
-  const filtro = document.getElementById("lista-de-tipos-de-cursos").value;
-  const linhas = document.querySelectorAll(".gestao-de-cursos-tabela-campus tbody tr");
+const listaDeCursos = document.getElementById("lista-de-cursos");
 
-  linhas.forEach(row => {
-    if (filtro === "todos-os-cursos") {
-      row.style.display = "";
-      return;
-    }
+if (listaDeCursos) {
+  listaDeCursos.addEventListener("change", function () {
+    const valorSelecionado = this.value;
+    console.log("Opção selecionada:", valorSelecionado);
 
-    const colunaCurso = row.querySelector("td:nth-child(3)");
-    if (colunaCurso && colunaCurso.textContent.trim() === filtro) {
-      row.style.display = "";
-    } else {
-      row.style.display = "none";
-    }
+    const rows = document.querySelectorAll(".gestao-de-cursos-tabela-campus tbody tr");
+
+    rows.forEach(row => {
+      if (valorSelecionado === "todos-os-niveis") {
+        row.style.display = "";
+      }
+      else if (row.getAttribute("data-nivel") === valorSelecionado) {
+        row.style.display = "";
+      } else {
+        row.style.display = "none";
+      }
+    });
   });
 }
+
+
+
