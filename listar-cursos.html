@@ -26,8 +26,9 @@
 
       .titulo-e-busca {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        width: 21.875rem;
+        gap: 2rem;
       }
 
       .lista-de-cursos {
@@ -75,7 +76,6 @@
         font-weight: lighter;
         font-family: "Roboto", sans-serif;
         font-size: 2rem;
-        padding: 0.938rem 0 0 0.938rem;
       }
 
       .gestao-de-cursos-tabela-campus {
@@ -129,15 +129,14 @@
             id="lista-de-tipos-de-cursos"
             name="lista-de-cursos"
             class="lista-de-cursos"
+            onchange="filtrarCursos()"
           >
             <option value="todos-os-cursos" selected>
               Todos os tipos de cursos
             </option>
-            <option value="tecnico-integrado">Técnico integrado</option>
-            <option value="qualificacao-profissional">
-              Qualificação profissional
-            </option>
-            <option value="tecnico-concomitante">Técnico concomitante</option>
+            <option value="Direito">Direito</option>
+            <option value="Medicina">Medicina</option>
+            <option value="Biomedicina">Biomedicina</option>
           </select>
         </form>
       </section>
@@ -159,22 +158,20 @@
 
               <td class="lista-trocar-campus-status td">Mestrado (EaD)</td>
 
-              <td class="lista-trocar-campus-status td">
-                Educaço Profissional e Tecnológia em Rede Nacional (ProfEPT)
-              </td>
+              <td class="lista-trocar-campus-status td">Direito</td>
 
               <td class="td">
                 <div class="dropdown">
                   <button
-                    onclick="openDropdown('dropdown-campus3')"
+                    onclick="openDropdown('dropdown-listar-curso')"
                     class="btn-do-dropdown"
                   >
                     <i class="fas fa-ellipsis-v"></i>
                   </button>
 
-                  <div id="dropdown-campus3" class="conteudo-dropdown">
-                    <a class="link-dropdown" href="#listar-campus-excluir">
-                      Excluir
+                  <div id="dropdown-listar-curso" class="conteudo-dropdown">
+                    <a class="link-dropdown" href="#listar-cursos-alterar">
+                      Alterar
                     </a>
                   </div>
                 </div>
@@ -182,26 +179,24 @@
             </tr>
 
             <tr class="tr">
-              <td class="lista-trocar-campus-nome td">Polo Canelinha</td>
+              <td class="lista-trocar-campus-nome td">Polo IFSC</td>
 
-              <td class="lista-trocar-campus-status td">Mestrado (EaD)</td>
+              <td class="lista-trocar-campus-status td">MBA</td>
 
-              <td class="lista-trocar-campus-status td">
-                Educaço Profissional e Tecnológia em Rede Nacional (ProfEPT)
-              </td>
+              <td class="lista-trocar-campus-status td">Medicina</td>
 
               <td class="td">
                 <div class="dropdown">
                   <button
-                    onclick="openDropdown('dropdown-campus3')"
+                    onclick="openDropdown('dropdown-listar-curso1')"
                     class="btn-do-dropdown"
                   >
                     <i class="fas fa-ellipsis-v"></i>
                   </button>
 
-                  <div id="dropdown-campus3" class="conteudo-dropdown">
-                    <a class="link-dropdown" href="#listar-campus-excluir">
-                      Excluir
+                  <div id="dropdown-listar-curso1" class="conteudo-dropdown">
+                    <a class="link-dropdown" href="#listar-cursos-alterar">
+                      Alterar
                     </a>
                   </div>
                 </div>
@@ -209,26 +204,24 @@
             </tr>
 
             <tr class="tr">
-              <td class="lista-trocar-campus-nome td">Polo Canelinha</td>
+              <td class="lista-trocar-campus-nome td">Polo UnB</td>
 
-              <td class="lista-trocar-campus-status td">Mestrado (EaD)</td>
+              <td class="lista-trocar-campus-status td">Graduação</td>
 
-              <td class="lista-trocar-campus-status td">
-                Educaço Profissional e Tecnológia em Rede Nacional (ProfEPT)
-              </td>
+              <td class="lista-trocar-campus-status td">Biomedicina</td>
 
               <td class="td">
                 <div class="dropdown">
                   <button
-                    onclick="openDropdown('dropdown-campus3')"
+                    onclick="openDropdown('dropdown-listar-curso2')"
                     class="btn-do-dropdown"
                   >
                     <i class="fas fa-ellipsis-v"></i>
                   </button>
 
-                  <div id="dropdown-campus3" class="conteudo-dropdown">
-                    <a class="link-dropdown" href="#listar-campus-excluir">
-                      Excluir
+                  <div id="dropdown-listar-curso2" class="conteudo-dropdown">
+                    <a class="link-dropdown" href="#listar-cursos-alterar">
+                      Alterar
                     </a>
                   </div>
                 </div>
@@ -238,5 +231,7 @@
         </table>
       </section>
     </div>
+
+    <script src="./JS/listar-curso.js" defer></script>
   </body>
 </html>
