@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Informações do Curso</title>
+
+    <link rel="stylesheet" href="./CSS/global.css" />
+    <link rel="stylesheet" href="./CSS/reset.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <style>
+      .tela-informacoes-do-curso {
+        padding: 1rem;
+        width: 50%;
+      }
+
+      .nome-do-curso-e-descricao img {
+        padding: 1rem 0;
+      }
+
+      .pre-requisitos {
+        margin-top: 3rem;
+      }
+
+      h4 {
+        color: #0f5f5c;
+        font-weight: 100;
+        font-family: "Roboto", sans-serif;
+        font-size: 2rem;
+        padding-bottom: 1rem;
+        margin: 0;
+      }
+
+      h5 {
+        color: #4a5058;
+        font-size: 1.5rem;
+        font-weight: 100;
+        margin-bottom: 1.875rem;
+        margin: 0;
+        padding-bottom: 1rem;
+      }
+
+      p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        color: #333;
+        padding-bottom: 3rem;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-family: "Open Sans", sans-serif;
+        margin-bottom: 3rem;
+      }
+
+      .informacoes {
+        margin-bottom: 3rem;
+      }
+
+      .lista-curso {
+        font-weight: 600;
+        color: #2f9e40;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .thead {
+        padding: 0.75rem 1.25rem 0.625rem 1.25rem;
+      }
+
+      .tabela-de-informacoes {
+        font-family: "Open Sans", sans-serif;
+        border-collapse: collapse;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        border-top-style: solid;
+        border-bottom-style: solid;
+        border-top-color: #8f9296;
+        border-bottom-color: #8f9296;
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        background-color: #eef1ec;
+      }
+
+      .td {
+        padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+        color: #1b5a57;
+        font-weight: 600;
+      }
+
+      .th {
+        text-align-last: left;
+        padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+        font-size: 0.875rem;
+        color: #333333;
+      }
+
+      .infraestrutura {
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .matriz-curricular,
+      .url-link-do-documento,
+      .projeto-pedagogico,
+      .resolucao-de-aprovacao,
+      .projetos-de-pesquisa,
+      .certificacao,
+      .contato {
+        padding-bottom: 3rem;
+      }
+
+      .link-para-download {
+        font-family: "Open Sans", sans-serif;
+        color: #2f9e40;
+        font-weight: bold;
+      }
+
+      .projetos-de-pesquisa p {
+        padding-bottom: 1.5rem;
+      }
+
+      .projetos-de-pesquisa p:last-child {
+        padding-bottom: 0rem;
+      }
+
+      .certificacao p {
+        padding-bottom: 0rem;
+      }
+
+      .contato ul {
+        margin: 0;
+      }
+
+      .pagina-atualizada {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-family: "Open Sans", sans-serif;
+        border-collapse: collapse;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        border-top-style: solid;
+        border-bottom-style: solid;
+        border-top-color: #8f9296;
+        border-bottom-color: #8f9296;
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        padding-top: 1.75rem;
+        padding-right: 1.75rem;
+        padding-bottom: 1.75rem;
+      }
+
+      .pagina-atualizada p {
+        padding-bottom: 0;
+        color: #8f9296;
+      }
+
+      .pagina-atualizada span {
+        font-weight: 600;
+        color: #8f9296;
+      }
+
+      .outros-campus {
+        padding-top: 3rem;
+      }
+
+      .campus {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "Open Sans", sans-serif;
+        border-collapse: collapse;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        border-top-style: solid;
+        border-bottom-style: solid;
+        border-top-color: #8f9296;
+        border-bottom-color: #8f9296;
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        padding: 1.5rem;
+      }
+
+      .campus:last-child {
+        border-top: none;
+      }
+
+      .campus:hover {
+        background-color: #2f9e40;
+        color: #ffffff;
+      }
+
+      .campus p {
+        padding-bottom: 0;
+        color: #4a5058;
+        font-weight: 600;
+      }
+
+      .meu-botao {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem;
+        background-color: #ffffff;
+        color: #2f9e40;
+        padding-top: 2rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%;
+      }
+
+      .meu-botao p {
+        padding-bottom: 0;
+        color: #2f9e40;
+        font-size: 1.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tela-informacoes-do-curso">
+      <section class="nome-do-curso-e-descricao">
+        <h4>Análise e Desenvolvimento de Sistemas</h4>
+
+        <h5>Câmpus Canoinhas</h5>
+
+        <img src="./IMG/teste02.png" alt="" />
+
+        <p>
+          O tecnólogo em Análise e Desenvolvimento de Sistemas analisa, projeta,
+          documenta, especifica, testa, implanta e mantém sistemas
+          computacionais de informação. Este profissional trabalha também com
+          ferramentas computacionais, equipamentos de informática e metodologia
+          de projetos na produção de sistemas. Raciocínio lógico, emprego de
+          linguagens de programação e de metodologias de construção de projetos,
+          preocupação com a qualidade, usabilidade, robustez, integridade e
+          segurança de programas computacionais são fundamentais à atuação deste
+          profissional.
+        </p>
+      </section>
+
+      <section class="mercado-de-trabalho">
+        <h4>Mercado de trabalho</h4>
+
+        <ul>
+          <li>
+            Instituições públicas, privadas e do terceiro setor que demandem
+            sistemas computacionais, especialmente envolvendo programação de
+            computadores
+          </li>
+          <li>Empresas de tecnologia</li>
+        </ul>
+      </section>
+
+      <section class="pre-requisitos">
+        <h4>Pré-Requisitos</h4>
+
+        <p>
+          Para ingressar no Curso Superior de Tecnologia em Análise e
+          Desenvolvimento de Sistemas, o aluno deve ter o Ensino Médio completo.
+        </p>
+      </section>
+
+      <section class="como-entrar">
+        <h4>Como entrar nesse curso?</h4>
+
+        <ul>
+          <li>
+            <a
+              class="lista-curso"
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SISU
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="informacoes">
+        <h4>Informações</h4>
+
+        <div class="teste">
+          <table class="tabela-de-informacoes">
+            <thead class="thead">
+              <tr class="tr">
+                <th class="th">Número de Vagas</th>
+                <th class="th">Carga Horária</th>
+                <th class="th">Turno</th>
+                <th class="th">Duração</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="tr">
+                <td class="td">40</td>
+
+                <td class="td">2000 horas/aula</td>
+
+                <td class="td">Noturno</td>
+
+                <td class="td">6 semestres</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="infraestrutura">
+        <h4>Infraestrutura</h4>
+
+        <ul>
+          <li>Laboratórios de Informática;</li>
+          <li>Laboratório de Hardware;</li>
+          <li>Laboratório de Redes de Computadores;</li>
+          <li>Setores de atendimento ao discente;</li>
+          <li>Salas de aula;</li>
+          <li>Biblioteca.</li>
+        </ul>
+      </section>
+
+      <section class="matriz-curricular">
+        <h4>Matriz Curricular</h4>
+
+        <div class="link-para-download">
+          <a href="caminho/do/seu/arquivo.pdf" download="NomeDesejado.pdf">
+            Consulte as disciplinas do curso
+          </a>
+
+          <i class="fa fa-download" aria-hidden="true"></i>
+        </div>
+      </section>
+
+      <section class="url-link-do-documento">
+        <h4>URL/Link do Documento</h4>
+
+        <div class="link-para-download">
+          <a href="caminho/do/seu/arquivo.pdf" download="NomeDesejado.pdf">
+            Projeto do Curso
+          </a>
+
+          <i class="fa fa-download" aria-hidden="true"></i>
+        </div>
+      </section>
+
+      <section class="projeto-pedagogico">
+        <h4>Projeto pedagógico do curso</h4>
+
+        <div class="link-para-download">
+          <a href="caminho/do/seu/arquivo.pdf" download="NomeDesejado.pdf">
+            Consulte o projeto pedagógico do curso
+          </a>
+
+          <i class="fa fa-download" aria-hidden="true"></i>
+        </div>
+      </section>
+
+      <section class="resolucao-de-aprovacao">
+        <h4>Resolução de aprovação da oferta do curso</h4>
+
+        <div class="link-para-download">
+          <a href="caminho/do/seu/arquivo.pdf" download="NomeDesejado.pdf">
+            Consulte a resolução de aprovação da oferta do curso
+          </a>
+
+          <i class="fa fa-download" aria-hidden="true"></i>
+        </div>
+      </section>
+
+      <section class="projetos-de-pesquisa">
+        <h4>Projetos de Pesquisa e Extensão</h4>
+
+        <p>
+          O Câmpus Canoinhas tem desenvolvido projetos de pesquisa e extensão na
+          área da Computação e Informática nas linhas:
+        </p>
+
+        <ul>
+          <li>Prontuário eletrônico;</li>
+          <li>Sites para ONGs;</li>
+          <li>Inclusão digital;</li>
+          <li>Atividades culturais;</li>
+          <li>Ensino de Programação para a comunidade carente;</li>
+          <li>
+            Desenvolvimento de software educativo como ferramenta didática.
+          </li>
+        </ul>
+
+        <p>
+          Os projetos contam com a participação dos alunos, que utilizam a
+          oportunidade para aprofundar seus conhecimentos.
+        </p>
+      </section>
+
+      <section class="certificacao">
+        <h4>Certificação</h4>
+
+        <p>Tecnólogo em Análise e Desenvolvimento de Sistemas.</p>
+      </section>
+
+      <section class="contato">
+        <h4>Contato</h4>
+
+        <ul>
+          <li>Coordenador: Kal-El Basílio Brito</li>
+          <li>E-mail: eletromecanica.smo@ifsc.edu.br</li>
+          <li>Telefone: (49) 3631-0465</li>
+          <li>Endereço: QS 11 Conjunto A</li>
+          <li>IFSC Câmpus São Miguel do Oeste</li>
+          <li>
+            Rua 22 de Abril, 2440, São Luiz, São Miguel do Oeste - SC, CEP
+            89900-000
+          </li>
+          <li>Fone: (49) 3631-0400</li>
+          <li>Site: http://www.smo.ifsc.edu.br</li>
+        </ul>
+      </section>
+
+      <section class="certificacao">
+        <h4>Corpo Docente</h4>
+
+        <p>Alexandre A. A. M. Abreu - Mestre - Dedicação Exclusiva</p>
+        <p>Carla V. S. Pacheco - Mestre - Dedicação Exclusiva</p>
+        <p>Carlos Rafael Guerber - Doutor - Dedicação Exclusiva</p>
+      </section>
+
+      <section class="pagina-atualizada">
+        <p>Página atualizada em: <span>04/11/2022</span></p>
+      </section>
+
+      <section class="outros-campus">
+        <h4>Outros câmpus que ofertam o curso</h4>
+
+        <a href="caminho/do/seu/arquivo.pdf" target="_blank" class="campus">
+          <p>Câmpus Gaspar</p>
+
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </a>
+
+        <a href="caminho/do/seu/arquivo.pdf" target="_blank" class="campus">
+          <p>Câmpus Gaspar</p>
+
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </section>
+
+      <button id="btnTopo" class="meu-botao">
+        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+
+        <p>Voltar ao topo</p>
+      </button>
+    </div>
+
+    <script src="./JS/informacoes-do-curso.js" defer></script>
+  </body>
+</html>
